@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Button, Input, Card, CardBody, Typography } from "@material-tailwind/react";
+import QRCode from 'qrcode.react';
 
 export default function GenerateQR() {
   const [tableNumber, setTableNumber] = useState('');
@@ -36,10 +37,16 @@ export default function GenerateQR() {
             {tableNumber && (
               <div className="text-center">
                 <div className="mb-4">
-                  <Typography color="red" className="mb-2">
-                    QR code generation is not available.
-                  </Typography>
+                  <QRCode
+                    id="qr-code"
+                    value={`${baseUrl}/table/${tableNumber}`}
+                    size={200}
+                    level="H"
+                  />
                 </div>
+                <Button onClick={downloadQR}>
+                  Download QR Code
+                </Button>
               </div>
             )}
           </div>

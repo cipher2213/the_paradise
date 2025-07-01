@@ -6,9 +6,6 @@ const nextConfig = {
       'plus.unsplash.com',
       'lh3.googleusercontent.com'
     ],
-  },
-  experimental: {
-    appDir: true
   }
 };
 
